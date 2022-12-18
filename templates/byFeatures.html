@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        form{
+            justify-content: center;
+            justify-items: center;
+            display: flex;
+        }
+        .form-group{
+            width: 50%;
+        }
+    </style>
+</head>
+<body class="container">
+    <form action="/predict/features" method="post">
+        <div class="form-group">
+            <label for="movie">Movie name</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="movie" placeholder="similar to movie">
+            <label for="genres">genres list</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="genres" placeholder="Action Fantasy">
+            <label for="star">Star name</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="star" placeholder="Tom Hanks">
+            <label for="director">Director name</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="director" placeholder="Christopher Nolan">
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form> 
+    {% if moviesByf|length >0 %}
+    <table class="table">
+        <tr>
+            <th>Name</th>
+        </tr>
+        {% for title in moviesByf %}
+            <tr>
+                <td>{{title}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+
+</body>
+</html>

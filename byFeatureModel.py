@@ -3,7 +3,7 @@ import numpy as np
 import ast
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from utils.formating import convert,convert2,fetch_director,collapse
+from utils.formating import convert,convert2,fetch_director,collapse,toLower
 
 ## import datasets 
 movies = pd.read_csv('tmdb/tmdb_5000_credits.csv')
@@ -20,10 +20,11 @@ movies['director'] = movies['crew'].apply(fetch_director)
 movies['overview'] = movies['overview'].apply(lambda x : x.split())
 
     ## collapse
-movies['cast'] = movies['cast'].apply(collapse)
-movies['director'] = movies['director'].apply(collapse)
-movies['genres'] = movies['genres'].apply(collapse)
-movies['keywords'] = movies['keywords'].apply(collapse)
+features=['cast','director','genres','keywords']
+for feature in features:
+    movies[feature]=movies[feature].apply(collapse)
+    movies[feature]=movies[feature].apply(toLower)
+
 ## merge into single string
 movies['tags'] = movies['overview']+movies['genres']+movies['keywords']+movies['cast']+movies['director']
 

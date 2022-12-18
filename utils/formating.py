@@ -27,3 +27,12 @@ def collapse(L):
     for i in L:
         L1.append(i.replace(" ",""))
     return L1
+
+def deleteSpaces(x):
+        x=x.lower()
+        return x.replace(" ","")
+
+def toLower(x):
+    if isinstance(x,list):
+        return [i.lower() for i in x]
+    

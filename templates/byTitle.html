@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        form{
+            justify-content: center;
+            justify-items: center;
+            display: flex;
+        }
+        .form-group{
+            width: 50%;
+        }
+    </style>
+</head>
+<body class="container">
+    <form action="/predict/title" method="post">
+        <div class="form-group">
+            <label for="movie">Movie name</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="movie" placeholder="Enter a movie name">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form> 
+   
+    {% if movies|length > 0 %}
+    <div class="container">
+        <h3>Recommendations for : {{name}}</h3>
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Genres</th>
+                <th>release_date</th>
+            </tr>
+            {% for index,row in movies.iterrows() %}
+                <tr>
+                    <td>{{row['title']}}</td>
+                    <td>
+                        {% for genre in row['genres'] %}
+                            {{genre}} ,
+                        {% endfor %}
+                    </td>
+                    <td> {{ row['release_date'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% elif name != null %}
+        <h3>Recommendations for : {{name}}</h3>
+        <h5>Not available in the dataset</h5>
+    {% endif %}
+
+</body>
+</html>
