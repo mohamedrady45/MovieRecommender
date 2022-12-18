@@ -18,10 +18,22 @@
     </style>
 </head>
 <body class="container">
-    <form action="/predicte" method="post">
+    <form action="/predicte/title" method="post">
         <div class="form-group">
             <label for="movie">Movie name</label>
             <input class="form-control" style="margin-bottom: 10px;" type="text" name="movie" placeholder="Enter a movie name">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form> 
+    <form action="/predicte/features" method="post">
+        <div class="form-group">
+            <label for="movie">Movie name</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="movie" placeholder="Enter a movie name">
+            <label for="genres">genres list</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="movie" placeholder="action fantasy">
+            <label for="cast">cast list</label>
+            <input class="form-control" style="margin-bottom: 10px;" type="text" name="movie" placeholder="Tom hanks , Tamer">
+            
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form> 
