@@ -1,5 +1,5 @@
 ## Movie Recommender
-###AI project, Type a movie name or a combination of features and get the top 10 similar movies.
+### AI project, Type a movie name or a combination of features and get the top 10 similar movies.
 - Used content-based approach.
 - Used The Movie DB dataset.
 - Used Count vector, which counts word frequency in each movie.
