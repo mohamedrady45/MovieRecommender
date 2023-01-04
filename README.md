@@ -5,4 +5,10 @@
 - Used Count vector, which counts word frequency in each movie.
 - Used Cosine similarity, which takes the count vector and calculates the similarity between movies.
 - Build API using Flask to present the two models.
-- One of the top three projects in AI collage competition.
+- One of the top three projects in AI college competition.
+## Team
+- Mai Abdallah
+- Nada Hamdi
+- Mohamed Rady
+- Marwan Said
+- Abdelhady Mohamed
